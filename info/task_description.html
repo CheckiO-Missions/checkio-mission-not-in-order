@@ -1,7 +1,7 @@
 <!-- Describe task in general -->
 
 <p>
-    You are given {% if is_js %}an Array of numbers{% else %}a list of integers{% endif %}. Your function should return the number of elements, which are not at their places as if the {% if is_js %}Array{% else %}list{% endif %} would be sorted ascending. For example, for the sequence <b class="code">1, 1, 4, 2, 1, 3</b> the result is <b class="code">3</b>, since elements at indexes 2, 4, 5 (remember about 0-based indexing in Python) are not at their places as in the same sequence sorted ascending - <b class="code">1, 1, 1, 2, 3, 4</b>.
+    You are given {% if is_js %}an Array of numbers{% else %}a list of integers{% endif %}. Your function should return the number of elements, which are not at their places as if the {% if is_js %}Array{% else %}list{% endif %} would be sorted ascending. For example, for the sequence <b class="code">1, 1, 4, 2, 1, 3</b> the result is <b class="code">3</b>, since elements at indexes 2, 4, 5 (remember about 0-based indexing in {% if is_js %}JavaScript{% else %}Python{% endif %}) are not at their places as in the same sequence sorted ascending - <b class="code">1, 1, 1, 2, 3, 4</b>.
 </p>
 
 <!-- Explain input and output values -->
