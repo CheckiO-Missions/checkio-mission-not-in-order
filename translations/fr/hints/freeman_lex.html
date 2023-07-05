@@ -1,0 +1,117 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Trouvez une idée 💡! Créer une version ordonnée du site <b class="code">data</b> et comparer les éléments ayant le même indice. Compter les éléments qui ne sont pas égaux.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            Pour obtenir une nouvelle liste, qui est une variante triée d'une autre liste, utilisez la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_sorted.asp">sorted()</a>. L'ordre croissant par valeur est l'ordre par défaut, il n'est donc pas nécessaire de modifier les autres arguments.
+        </p>
+        <pre class="brush: python">
+data1 = sorted(data)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Que faire ensuite?
+    </div>
+    <div class="answer">
+        <p>
+            Vous devez maintenant itérer sur les deux listes simultanément, index par index. L'outil idéal pour cette tâche est la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a>. Elle crée un générateur qui produit des valeurs ayant le même index. Notez que vous pouvez utiliser n'importe quel nombre d'arguments itérables, et pas seulement deux.  
+        </p>
+        <pre class="brush: python">
+zip(data, sorted(data))
+        </pre>
+        <p>
+            Il n'est pas nécessaire d'assigner une valeur à une variable si vous n'allez pas l'utiliser plus d'une fois. Passez maintenant en revue les paires de valeurs à l'aide de la boucle <b class="code">for</b>.
+        </p>
+        <pre class="brush: python">
+for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Expliquez-moi ce que je dois faire avec ces paires
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de les comparer et d'obtenir une valeur logique de leur inégalité.
+        </p>
+        <pre class="brush: python">
+i!= j for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Comment compter le nombre d'éléments inégaux?
+    </div>
+    <div class="answer">
+        <p>
+            Python peut interpréter les valeurs logiques comme des entiers: <b class="code">True</b> est égal à <b>1</b> et <b class="code">False</b> est égal à <b class="code">0</b>. Ainsi, chaque cas d'éléments inégaux vous donne <b class="code">i!= j => True => 1</b>. Il vous suffit d'utiliser l'expression de l'astuce précédente comme argument de la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_sum.asp">sum()</a>. Elle accumule les 1-s, tandis que les 0-s n'ont pas d'effet.   
+        </p>
+        <pre class="brush: python">
+sum(i!= j for i, j in zip(data, sorted(data)))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Alors, à quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de renvoyer une valeur finale et d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indications de type pour les données d'entrée et de sortie.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def not_order(data: list[int]) -> int:
+
+    return sum(i!= j for i, j in zip(data, sorted(data)))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            La solution est la même, mais en utilisant la fonction anonyme <b class="code">lambda</b>, le module standard <b class="code">operator</b> et la fonction intégrée <b class="code">map()</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from operator import ne
+
+
+not_order = lambda data: sum(map(ne, data, sorted(data)))
+        </pre>
+        </div>
+        <p>Cliquez sur <b>Best Solutions</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
