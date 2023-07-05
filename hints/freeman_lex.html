@@ -1,0 +1,117 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            Catch an idea 💡! To create an ordered version of the given <b class="code">data</b> and compare elements with the same index. Count elements which are not equal.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+            To get a new list, which is a sorted variant of some other list, use a built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_sorted.asp">sorted()</a> function. Ascending order by value is default so no need to change any other argument.
+        </p>
+        <pre class="brush: python">
+data1 = sorted(data)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What to do next?
+    </div>
+    <div class="answer">
+        <p>
+            Now you need to iterate over both lists simultaneously, index by index. The perfect tool for this task is a built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a> function. It creates a generator, which yields values with the same index. Note, that you may use any number of iterable arguments, not only two.  
+        </p>
+        <pre class="brush: python">
+zip(data, sorted(data))
+        </pre>
+        <p>
+            Not necessary to assign value to a variable if you are not going to use the variable more than once. Now iterate over pairs of values using <b class="code">for</b> loop.
+        </p>
+        <pre class="brush: python">
+for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Explain, what should I do with the pairs?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to compare them and get a logic value of their inequity.
+        </p>
+        <pre class="brush: python">
+i != j for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        How to count number of unequal elements?
+    </div>
+    <div class="answer">
+        <p>
+            Python can interpret logic values as integers: <b class="code">True</b> equals <b>1</b> and <b class="code">False</b> equals <b class="code">0</b>. So each case of unequal elements gives you <b class="code">i != j => True => 1</b>. You just need to use expression from the previous hint as argument of built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_sum.asp">sum()</a> function. It accumulates 1-s, while 0-s have no effect.   
+        </p>
+        <pre class="brush: python">
+sum(i != j for i, j in zip(data, sorted(data)))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to return a final value and wrap your code into function expression. Using type hints for input and output data are highly recommended.
+        </p>
+        <p>Here is the whole solution:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def not_order(data: list[int]) -> int:
+
+    return sum(i != j for i, j in zip(data, sorted(data)))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            The solution is the same, but with using anonymous <b class="code">lambda</b> function, <b class="code">operator</b> standard module and built-in <b class="code">map()</b> function.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from operator import ne
+
+
+not_order = lambda data: sum(map(ne, data, sorted(data)))
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it 👍!
+    </div>
+</div>
+</body>

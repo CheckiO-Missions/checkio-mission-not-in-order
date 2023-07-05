@@ -1,16 +1,16 @@
 <!-- Describe task in general -->
 
-<p>
-    You are given {% if is_js %}an Array of numbers{% else %}a list of integers{% endif %}. Your function should return the number of elements, which are not at their places as if the {% if is_js %}Array{% else %}list{% endif %} would be sorted ascending. For example, for the sequence <b class="code">1, 1, 4, 2, 1, 3</b> the result is <b class="code">3</b>, since elements at indexes 2, 4, 5 (remember about 0-based indexing in {% if is_js %}JavaScript{% else %}Python{% endif %}) are not at their places as in the same sequence sorted ascending - <b class="code">1, 1, 1, 2, 3, 4</b>.
+<p style="text-align: justify;">
+    You are given {% if is_js %}an array of numbers{% else %}a list of integers{% endif %}. Your function should return the number of elements, which are not at their places as if the {% if is_js %}array{% else %}list{% endif %} would be sorted ascending. For example, for the sequence <b class="code">[1, 1, 4, 2, 1, 3]</b> the result is <b class="code">3</b>, since elements at indexes 2, 4, 5 (remember about 0-based indexing in {% if is_js %}JavaScript{% else %}Python{% endif %}) are not at their places as in the same sequence sorted ascending - <b class="code">[1, 1, 1, 2, 3, 4]</b>.
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> {% if is_js %}An Array of numbers{% else %}A list of integers{% endif %}.
+    <strong>Input:</strong> <span translate="repeat">{% if is_js %}Array{% else %}List{% endif %}</span> of integers (<span translate="no">{% if is_js %}number{% else %}int{% endif %}</span>).
 </p>
 
 <p>
-    <strong>Output:</strong> {% if is_js %}Number{% else %}Integer{% endif %}. 
+    <strong>Output:</strong> Integer (<span translate="no">{% if is_js %}number{% else %}int{% endif %}</span>). 
 </p>
 
 
