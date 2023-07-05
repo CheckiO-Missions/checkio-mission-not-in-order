@@ -1,0 +1,21 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    On vous donne {% if is_js %}un tableau de nombres{% else %}une liste d'entiers{% endif %}. Votre fonction doit renvoyer le nombre d'éléments qui ne sont pas à leur place comme si le tableau {% if is_js %}{% else %} liste{% endif %} était trié par ordre croissant. Par exemple, pour la séquence <b class="code">[1, 1, 4, 2, 1, 3]</b>, le résultat est <b class="code">3</b>, puisque les éléments aux index 2, 4, 5 (rappelez-vous de l'indexation basée sur 0 dans {% if is_js %}JavaScript{% else %}Python{% endif %}) ne sont pas à leur place comme dans la même séquence triée de manière ascendante - <b class="code">[1, 1, 1, 2, 3, 4]</b>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> {% if is_js %}Tableau{% else %}Liste{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span> d'entiers (<span>{% if is_js %}number{% else %}int{% endif %}</span>).
+</p>
+
+<p>
+   <strong>Sortie:</strong> Entier (<span>{% if is_js %}number{% else %}int{% endif %}</span>). 
+</p>
+
+
+<p>
+    <strong>Exemples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
