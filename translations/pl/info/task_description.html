@@ -1,0 +1,21 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    Otrzymują Państwo {% if is_js %}tablicę liczb{% else %}listę liczb całkowitych{% endif %}. Pana funkcja powinna zwrócić liczbę elementów, które nie znajdują się na swoich miejscach, tak jakby tablica {% if is_js %}{% else %} lista{% endif %} była posortowana rosnąco. Na przykład, dla sekwencji <b class="code">[1, 1, 4, 2, 1, 3]</b> wynikiem jest <b class="code">3</b>, ponieważ elementy na indeksach 2, 4, 5 (proszę pamiętać o indeksowaniu opartym na 0 w {% if is_js %}JavaScript{% else %}Python{% endif %}) nie są na swoich miejscach tak jak w tej samej sekwencji posortowanej rosnąco - <b class="code">[1, 1, 1, 2, 3, 4]</b>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Wejście:</strong> {% if is_js %}Tablica{% else %}Lista{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span> liczb całkowitych (<span>{% if is_js %}number{% else %}int{% endif %}</span>).
+</p>
+
+<p>
+   <strong>Dane wyjściowe:</strong> Liczba całkowita (<span>{% if is_js %}number{% else %}int{% endif %}</span>). 
+</p>
+
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
