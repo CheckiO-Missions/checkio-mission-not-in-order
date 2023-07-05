@@ -1,0 +1,117 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać jakiś pomysł 💡! Proszę utworzyć uporządkowaną wersję podanego <b class="code">data</b> i porównać elementy o tym samym indeksie. Proszę policzyć elementy, które nie są równe.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Aby uzyskać nową listę, która jest posortowanym wariantem innej listy, proszę użyć wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_sorted.asp">sorted()</a>. Kolejność rosnąca według wartości jest domyślna, więc nie trzeba zmieniać żadnego innego argumentu.
+        </p>
+        <pre class="brush: python">
+data1 = sorted(data)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Co robić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Teraz proszę wykonać iterację po obu listach jednocześnie, indeks po indeksie. Idealnym narzędziem do tego zadania jest wbudowana funkcja <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a>. Tworzy ona generator, który zwraca wartości o tym samym indeksie. Proszę zauważyć, że można użyć dowolnej liczby argumentów iterowalnych, nie tylko dwóch.  
+        </p>
+        <pre class="brush: python">
+zip(data, sorted(data))
+        </pre>
+        <p>
+            Nie ma potrzeby przypisywania wartości do zmiennej, jeśli nie zamierzamy używać zmiennej więcej niż jeden raz. Teraz proszę iterować po parach wartości za pomocą pętli <b class="code">for</b>.
+        </p>
+        <pre class="brush: python">
+for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę wyjaśnić, co należy zrobić z parami?
+    </div>
+    <div class="answer">
+        <p>
+            Musi je Pan po prostu porównać i uzyskać wartość logiczną ich nierówności.
+        </p>
+        <pre class="brush: python">
+i!= j for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak policzyć liczbę nierównych elementów?
+    </div>
+    <div class="answer">
+        <p>
+            Python potrafi interpretować wartości logiczne jako liczby całkowite: <b class="code">True</b> równa się <b>1</b>, a <b class="code">False</b> równa się <b class="code">0</b>. Tak więc każdy przypadek nierównych elementów daje <b class="code">i!= j => True => 1</b>. Wystarczy użyć wyrażenia z poprzedniej podpowiedzi jako argumentu wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_sum.asp">sum()</a>. Kumuluje ona 1-s, podczas gdy 0-s nie ma żadnego efektu.   
+        </p>
+        <pre class="brush: python">
+sum(i!= j for i, j in zip(data, sorted(data)))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zwrócić wartość końcową i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def not_order(data: list[int]) -> int:
+
+    return sum(i!= j for i, j in zip(data, sorted(data)))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwą 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            Rozwiązanie jest takie samo, ale z użyciem anonimowej funkcji <b class="code">lambda</b>, standardowego modułu <b class="code">operator</b> i wbudowanej funkcji <b class="code">map()</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from operator import ne
+
+
+not_order = lambda data: sum(map(ne, data, sorted(data)))
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
