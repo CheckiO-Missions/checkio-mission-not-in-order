@@ -1,0 +1,117 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这项任务。
+    </div>
+    <div class="answer">
+        <p>
+            抓住一个想法💡！创建给定<b class="code">data</b> 的有序版本，并比较具有相同索引的元素。计算不相等的元素。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好的，我应该从什么开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            要得到一个新的列表，它是其他列表的排序变体，请使用内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_sorted.asp">sorted()</a> 函数。默认值为升序，因此无需更改任何其他参数。
+        </p>
+        <pre class="brush: python">
+data1 = sorted(data)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        下一步做什么？
+    </div>
+    <div class="answer">
+        <p>
+            现在您需要同时遍历两个列表，逐个索引。实现这一任务的完美工具是内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a> 函数。它创建了一个生成器，生成具有相同索引的值。注意，您可以使用任意数量的迭代参数，而不仅仅是两个。  
+        </p>
+        <pre class="brush: python">
+zip(data, sorted(data))
+        </pre>
+        <p>
+            如果你不打算多次使用变量，就没有必要给变量赋值。现在使用<b class="code">for</b> 循环遍历值对。
+        </p>
+        <pre class="brush: python">
+for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        解释一下，我应该如何处理这些值对？
+    </div>
+    <div class="answer">
+        <p>
+            您只需对它们进行比较，然后得到它们不等式的逻辑值。
+        </p>
+        <pre class="brush: python">
+i!= j for i, j in zip(data, sorted(data))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        如何计算不相等元素的个数？
+    </div>
+    <div class="answer">
+        <p>
+            Python 可以将逻辑值解释为整数：<b class="code">True</b> 等于<b>1</b> ，<b class="code">False</b> 等于<b class="code">0</b> 。因此，每个不相等元素的情况都会得到<b class="code">i!= j => True => 1</b> 。你只需要使用前面提示的表达式作为内置函数<a target="_blank" href="https://www.w3schools.com/python/ref_func_sum.asp">sum()</a> 的参数。它累加 1-s，而 0-s 没有影响。   
+        </p>
+        <pre class="brush: python">
+sum(i!= j for i, j in zip(data, sorted(data)))
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需返回一个最终值，并将代码封装为函数表达式。强烈建议对输入和输出数据使用类型提示。
+        </p>
+        <p>以下是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def not_order(data: list[int]) -> int:
+
+    return sum(i!= j for i, j in zip(data, sorted(data)))
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        向我展示更多解决方案！<br />
+        因为我想成为一个真正的 🥇 Python Ninnjaa！
+    </div>
+    <div class="answer">
+        <p>当然，抓住它！</p>
+        <p>
+            解决方案是相同的，但使用匿名<b class="code">lambda</b> 函数、<b class="code">operator</b> 标准模块和内置<b class="code">map()</b> 函数。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from operator import ne
+
+
+not_order = lambda data: sum(map(ne, data, sorted(data)))
+        </pre>
+        </div>
+        <p>点击任务菜单中的<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解得更多了！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息👍！
+    </div>
+</div>
+</body>

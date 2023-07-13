@@ -1,0 +1,21 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    给定{% if is_js %}一个数组{% else %}一个整数列表{% endif %} 。您的函数应该返回元素的个数，这些元素不在它们的位置上，就像{% if is_js %}数组{% else %}列表{% endif %} 按升序排序一样。例如，对于数列<b class="code">[1, 1, 4, 2, 1, 3]</b> ，结果是<b class="code">3</b> ，因为位于索引 2, 4, 5 的元素 (请记住在{% if is_js %}JavaScript{% else %}Python{% endif %} 中基于 0 的索引)不在它们的位置上，就像在升序排序的数列<b class="code">[1, 1, 1, 2, 3, 4]</b> 中一样。
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入：</strong> {% if is_js %}数组{% else %}列表{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span>整数数组 (<span>{% if is_js %}number{% else %}int{% endif %}</span>).
+</p>
+
+<p>
+   <strong>输出：</strong>整数 (<span>{% if is_js %}number{% else %}int{% endif %}</span>). 
+</p>
+
+
+<p>
+    <strong>示例：</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
