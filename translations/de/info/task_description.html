@@ -1,0 +1,21 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    Sie erhalten {% if is_js %}ein Array mit Zahlen{% else %}eine Liste mit ganzen Zahlen{% endif %}. Ihre Funktion sollte die Anzahl der Elemente zurückgeben, die nicht an ihren Plätzen sind, als ob das {% if is_js %}Array{% else %}Liste{% endif %} aufsteigend sortiert wäre. Für die Sequenz <b class="code">[1, 1, 4, 2, 1, 3]</b> lautet das Ergebnis beispielsweise <b class="code">3</b>, da die Elemente an den Indizes 2, 4, 5 (erinnern Sie sich an die 0-basierte Indizierung in {% if is_js %}JavaScript{% else %}Python{% endif %}) nicht an ihren Plätzen sind, wie in der gleichen Sequenz aufsteigend sortiert - <b class="code">[1, 1, 1, 2, 3, 4]</b>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> {% if is_js %}Array{% else %}Liste{% endif %} <span>({% if is_js %}Array{% else %}List{% endif %})</span> von ganzen Zahlen (<span>{% if is_js %}number{% else %}int{% endif %}</span>).
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> Ganzzahl (<span>{% if is_js %}number{% else %}int{% endif %}</span>). 
+</p>
+
+
+<p>
+    <strong>Beispiele:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
